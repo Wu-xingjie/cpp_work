@@ -1,14 +1,20 @@
 #pragma once
+#include <vector>
+#include <string>
 
-class StrCmp{
-    public:
+class StrCmp
+{
+public:
     StrCmp() = default;
     ~StrCmp() = default;
     // 进行c风格字符串对比
-    int strcmpWithDigital(const char* c1st, const char* c2st);
-    protected:
+    int strcmpWithDigital(const char *c1st, const char *c2st);
+
+protected:
     // 解析字符串在ASCII码中的长度
-    int strLength(const char* cst);
-    // 判断输入的字符是否是阿拉伯数字
-    bool isDigit(const char* c)
+    int strLength(const char *cst);
+    // 判断字符串是否是数字
+    bool isDigit(const std::string &content);
+    // 拆分字符串
+    std::vector<std::string> splitStr(const char *cst);
 };
