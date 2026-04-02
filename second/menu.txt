@@ -1,0 +1,7 @@
+Menu Proc
+{
+# Label Type Dummy "tcl command"
+"Chop Array" f.tcl "chop array" "source chopArray.tbc"
+"Generate Polygon" f.tcl genPolygon "source genPolygon.tbc"
+"PS Placement" f.tcl PSPlacement "source PSPlacement.tbc"
+}
