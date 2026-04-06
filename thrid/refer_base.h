@@ -13,11 +13,11 @@ public:
   typedef std::map<std::string, double> BaseExpDate;
   // 获取最佳扩张行
   std::pair<double, BaseExpDate> getBastExpanDate(const double &width);
+  bool isLastDate(const double &width);
 
 protected:
   // 解析有效行
   std::vector<std::string> parserLine(const std::string &line);
-
 private:
   // 存储扩展基准width
   std::vector<double> _base_width;

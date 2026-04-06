@@ -14,6 +14,8 @@ public:
 protected:
   void expantion(double &width, double &length,
                  const BaseRef::BaseExpDate &base_data);
+  // 刷新width
+  void refreshWidth(double &width, double &length);
 
 public:
   boost::shared_ptr<BaseRef> _base_ref;

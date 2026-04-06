@@ -16,7 +16,7 @@ std::vector<std::string> BaseRef::parserLine(const std::string &line) {
       if (fir_nempty_char != std::string::npos) {
         // 去除首尾空字符
         auto last_nempty_char = num.find_last_not_of(" \t\n\r\f\v");
-        auto valid_num = num.substr(fir_nempty_char, last_nempty_char+1);
+        auto valid_num = num.substr(fir_nempty_char, last_nempty_char + 1);
         // 如果valid_num中有括号，则抛出错误
         if (num.find_first_of("()") != std::string::npos) {
           throw std::runtime_error("[ERRO] 字段解析的错误： " + line);
@@ -74,11 +74,13 @@ BaseRef::getBastExpanDate(const double &width) {
   // 第一行对比
   if (width - _base_width.at(0) < 1.0e-20) {
     bast_width_idx = 0;
-  }
-  for (int i = 1; i < _base_data.size(); i++) {
-    double cur_width = _base_width.at(i);
-    if (width - cur_width < 1.0e-20) {
-      bast_width_idx = i;
+  } else {
+    for (int i = 1; i < _base_data.size(); i++) {
+      double cur_width = _base_width.at(i);
+      if (width - cur_width < 1.0e-20) {
+        bast_width_idx = i;
+        break;
+      }
     }
   }
   //   最后一行对比
@@ -87,4 +89,10 @@ BaseRef::getBastExpanDate(const double &width) {
   }
   return std::make_pair(_base_width.at(bast_width_idx),
                         _base_data[_base_width.at(bast_width_idx)]);
+}
+
+bool BaseRef::isLastDate(const double &width) {
+  return (std::abs(width - _base_width.at(_base_width.size() - 1)) < 1.0e-20)
+             ? true
+             : false;
 }
