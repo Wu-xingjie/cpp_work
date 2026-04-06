@@ -12,7 +12,7 @@ public:
   void getBaseDate(const std::string &file_path);
   typedef std::map<std::string, double> BaseExpDate;
   // 获取最佳扩张行
-  BaseExpDate getBastExpanDate(const double &width);
+  std::pair<double, BaseExpDate> getBastExpanDate(const double &width);
 
 protected:
   // 解析有效行
