@@ -46,7 +46,7 @@ void BaseRef::getBaseDate(const std::string &file_path) {
       try {
         auto line_parsered = parserLine(line);
         if (line_parsered.size() != 3) {
-          throw std::runtime_error("[ERRO] " + line +
+          throw std::runtime_error("[INFO] " + line +
                                    "解析错误，该行解析出字段个数：" +
                                    std::to_string(line_parsered.size()));
         }

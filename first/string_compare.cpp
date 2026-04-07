@@ -1,6 +1,6 @@
 #include <stdexcept>
 #include <ctype.h>
-#include "strcmp.h"
+#include "string_compare.h"
 #include <cstring>
 #include <algorithm>
 #include <boost/lexical_cast.hpp>
